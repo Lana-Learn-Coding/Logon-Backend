@@ -1,0 +1,9 @@
+type CartProduct {
+    createdAt: String!
+    updatedAt: String!
+
+    user: User!
+    product: Product!
+
+    quantity: Int
+}

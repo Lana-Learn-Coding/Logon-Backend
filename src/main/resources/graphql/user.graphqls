@@ -1,0 +1,25 @@
+type User {
+    id: ID!
+    createdAt: String!
+    updatedAt: String!
+
+    email: String
+    #    role: Role
+
+    firstName: String
+    lastName: String
+    phone: String
+
+    cart: [CartProduct]
+    favorites: [Product]
+}
+
+type Role {
+    id: ID!
+    name: String!
+}
+
+type SigninPayload {
+    user: User
+    token: String
+}

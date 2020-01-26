@@ -1,0 +1,20 @@
+type Product {
+    id: ID!
+    createdAt: String!
+    updatedAt: String!
+
+    name: String
+    description: String
+    categories: [Category]
+    price: Float
+    specifications: [ProductSpecification]
+    rate: Float
+}
+
+type ProductSpecification {
+    id: ID!
+    createdAt: String!
+    updatedAt: String!
+    name: String
+    info: String
+}

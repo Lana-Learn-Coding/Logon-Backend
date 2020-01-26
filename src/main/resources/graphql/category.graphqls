@@ -1,0 +1,7 @@
+type Category {
+    id: ID!
+    createdAt: String!
+    updatedAt: String!
+
+    products: [Product]
+}

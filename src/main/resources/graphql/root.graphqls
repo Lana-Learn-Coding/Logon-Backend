@@ -1,0 +1,9 @@
+type Query {
+    users: [User]
+    products: [Product]
+    categories: [Category]
+}
+
+type Mutation {
+    signInUser(email: String, password: String): SigninPayload
+}
