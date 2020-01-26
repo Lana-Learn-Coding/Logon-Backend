@@ -1,7 +1,8 @@
 type Category {
     id: ID!
     createdAt: String!
-    updatedAt: String!
+    modifiedAt: String!
 
+    name: String
     products: [Product]
 }

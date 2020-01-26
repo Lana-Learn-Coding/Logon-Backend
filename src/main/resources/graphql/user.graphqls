@@ -1,7 +1,7 @@
 type User {
     id: ID!
     createdAt: String!
-    updatedAt: String!
+    modifiedAt: String!
 
     email: String
     #    role: Role
@@ -10,7 +10,7 @@ type User {
     lastName: String
     phone: String
 
-    cart: [CartProduct]
+    cartProducts: [CartProduct]
     favorites: [Product]
 }
 

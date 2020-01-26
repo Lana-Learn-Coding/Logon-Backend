@@ -1,17 +1,15 @@
 package com.lana.logon.user;
 
 import com.lana.logon.Auditable;
+import com.lana.logon.cartproduct.CartProduct;
+import com.lana.logon.product.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -30,9 +28,14 @@ public class User extends Auditable {
     private String lastName;
     private String phone;
 
+    @ManyToMany
+    @JoinTable(
+            name = "favorites",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private Set<Product> favorites;
 
-    @CreatedDate
-    private Date createdAt;
-    @LastModifiedDate
-    private Date updatedAt;
+    @OneToMany(mappedBy = "user")
+    private Set<CartProduct> cartProducts;
 }
