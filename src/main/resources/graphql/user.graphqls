@@ -3,11 +3,12 @@ type User {
     createdAt: String!
     modifiedAt: String!
 
-    email: String
+    email: String!
     #    role: Role
 
-    firstName: String
-    lastName: String
+    firstName: String!
+    lastName: String!
+    gender: String
     phone: String
 
     cartProducts: [CartProduct]
@@ -15,12 +16,12 @@ type User {
 }
 
 type UserPage implements Page {
-    content: [User]
+    content: [User]!
     totalElements: Int
-    totalPages: Int
-    number: Int
     numberOfElements: Int
-    size: Int
+    totalPages: Int!
+    number: Int!
+    size: Int!
 }
 
 type Role {

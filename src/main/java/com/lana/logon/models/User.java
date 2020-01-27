@@ -24,6 +24,7 @@ public class User extends Auditable {
 
     private String firstName;
     private String lastName;
+    private Character gender;
 
     @Column(unique = true)
     private String phone;

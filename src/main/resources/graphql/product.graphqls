@@ -3,10 +3,10 @@ type Product {
     createdAt: String!
     modifiedAt: String!
 
-    name: String
+    name: String!
     description: String
     categories: [Category]
-    price: Float
+    price: Float!
     specifications: [ProductSpecification]
     rate: Float
 }
@@ -20,10 +20,10 @@ type ProductSpecification {
 }
 
 type ProductPage implements Page {
-    content: [Product]
+    content: [Product]!
     totalElements: Int
-    totalPages: Int
-    number: Int
     numberOfElements: Int
-    size: Int
+    totalPages: Int!
+    number: Int!
+    size: Int!
 }

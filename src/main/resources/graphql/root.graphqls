@@ -1,7 +1,7 @@
 type Query {
-    users: [User]
-    products: [Product]
-    categories(page: PageRequest): Page
+    users(page: PageRequest): UserPage
+    products(page: PageRequest): ProductPage
+    categories(page: PageRequest): CategoryPage
 }
 
 #type Mutation {
@@ -10,14 +10,14 @@ type Query {
 
 input PageRequest {
     page: Int
-    size: Int!
+    size: Int
     sorts: [String]
 }
 
 interface Page {
     totalElements: Int
-    totalPages: Int
-    number: Int
     numberOfElements: Int
-    size: Int
+    totalPages: Int!
+    number: Int!
+    size: Int!
 }

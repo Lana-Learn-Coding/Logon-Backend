@@ -3,15 +3,15 @@ type Category {
     createdAt: String!
     modifiedAt: String!
 
-    name: String
+    name: String!
     products: [Product]
 }
 
 type CategoryPage implements Page {
-    content: [Category]
+    content: [Category]!
     totalElements: Int
-    totalPages: Int
-    number: Int
     numberOfElements: Int
-    size: Int
+    totalPages: Int!
+    number: Int!
+    size: Int!
 }
