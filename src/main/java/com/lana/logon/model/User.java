@@ -1,7 +1,7 @@
-package com.lana.logon.models;
+package com.lana.logon.model;
 
-import com.lana.logon.models.cart.CartProduct;
-import com.lana.logon.models.product.Product;
+import com.lana.logon.model.cart.CartProduct;
+import com.lana.logon.model.product.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

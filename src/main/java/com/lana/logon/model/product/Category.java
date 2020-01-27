@@ -1,6 +1,6 @@
-package com.lana.logon.models.product;
+package com.lana.logon.model.product;
 
-import com.lana.logon.models.Auditable;
+import com.lana.logon.model.Auditable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

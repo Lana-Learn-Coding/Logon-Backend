@@ -28,14 +28,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    implementation 'com.graphql-java-kickstart:graphql-java-tools:5.7.1'
-    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:6.0.1'
-    implementation 'com.graphql-java-kickstart:graphiql-spring-boot-starter:6.0.1'
+    // implementation 'org.springframework.boot: spring-boot-starter-data-rest'
+    // implementation 'org.springframework.boot:spring-boot-starter-security'
+    // implementation 'org.springframework.session:spring-session-jdbc'
 
     runtimeOnly 'mysql:mysql-connector-java'
     implementation 'org.flywaydb:flyway-core'
     runtimeOnly 'com.h2database:h2'
 
+    implementation 'org.modelmapper:modelmapper:2.3.5'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -43,6 +44,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    // testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {
