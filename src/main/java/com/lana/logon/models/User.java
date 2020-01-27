@@ -18,11 +18,14 @@ public class User extends Auditable {
     @GeneratedValue
     private Integer id;
 
+    @Column(unique = true)
     private String email;
     private String password;
 
     private String firstName;
     private String lastName;
+
+    @Column(unique = true)
     private String phone;
 
     @ManyToMany
