@@ -4,7 +4,6 @@ import com.lana.logon.Auditable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,9 +16,8 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 public class ProductSpecification extends Auditable {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedValue
+    private Integer id;
 
     private String name;
     private String info;
