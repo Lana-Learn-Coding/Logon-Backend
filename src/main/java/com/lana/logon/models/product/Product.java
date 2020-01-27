@@ -1,9 +1,8 @@
-package com.lana.logon.product;
+package com.lana.logon.models.product;
 
-import com.lana.logon.Auditable;
-import com.lana.logon.cartproduct.CartProduct;
-import com.lana.logon.category.Category;
-import com.lana.logon.user.User;
+import com.lana.logon.models.Auditable;
+import com.lana.logon.models.User;
+import com.lana.logon.models.cart.CartProduct;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

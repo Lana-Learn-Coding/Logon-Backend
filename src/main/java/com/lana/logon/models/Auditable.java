@@ -1,4 +1,4 @@
-package com.lana.logon;
+package com.lana.logon.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

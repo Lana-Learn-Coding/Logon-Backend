@@ -1,4 +1,4 @@
-package com.lana.logon.cartproduct;
+package com.lana.logon.models.cart;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
