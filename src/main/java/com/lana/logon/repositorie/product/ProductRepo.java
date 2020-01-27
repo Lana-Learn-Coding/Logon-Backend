@@ -7,6 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 
-public interface ProductRepo extends PagingAndSortingRepository<Product, String> {
+public interface ProductRepo extends PagingAndSortingRepository<Product, Integer> {
     Page<Product> findAllByCategoriesContains(Category category, Pageable pageable);
 }
