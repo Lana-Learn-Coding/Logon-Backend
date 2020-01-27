@@ -1,9 +1,23 @@
 type Query {
     users: [User]
     products: [Product]
-    categories: [Category]
+    categories(page: PageRequest): Page
 }
 
 #type Mutation {
 #    signInUser(email: String, password: String): SigninPayload
 #}
+
+input PageRequest {
+    page: Int
+    size: Int!
+    sorts: [String]
+}
+
+interface Page {
+    totalElements: Int
+    totalPages: Int
+    number: Int
+    numberOfElements: Int
+    size: Int
+}

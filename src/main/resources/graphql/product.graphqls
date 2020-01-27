@@ -18,3 +18,12 @@ type ProductSpecification {
     name: String
     info: String
 }
+
+type ProductPage implements Page {
+    content: [Product]
+    totalElements: Int
+    totalPages: Int
+    number: Int
+    numberOfElements: Int
+    size: Int
+}

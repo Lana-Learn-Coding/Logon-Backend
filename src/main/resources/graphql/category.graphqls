@@ -6,3 +6,12 @@ type Category {
     name: String
     products: [Product]
 }
+
+type CategoryPage implements Page {
+    content: [Category]
+    totalElements: Int
+    totalPages: Int
+    number: Int
+    numberOfElements: Int
+    size: Int
+}

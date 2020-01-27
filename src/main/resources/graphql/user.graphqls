@@ -14,6 +14,15 @@ type User {
     favorites: [Product]
 }
 
+type UserPage implements Page {
+    content: [User]
+    totalElements: Int
+    totalPages: Int
+    number: Int
+    numberOfElements: Int
+    size: Int
+}
+
 type Role {
     id: ID!
     name: String!
