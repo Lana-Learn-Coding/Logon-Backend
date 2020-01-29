@@ -2,6 +2,7 @@ package com.lana.logon.model;
 
 import com.lana.logon.model.cart.CartProduct;
 import com.lana.logon.model.product.Product;
+import com.lana.logon.model.product.rate.ProductRate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,8 @@ public class User extends Auditable {
     private String email;
     private String password;
 
+    private String avatar;
+
     private String firstName;
     private String lastName;
     private Character gender;
@@ -39,4 +42,7 @@ public class User extends Auditable {
 
     @OneToMany(mappedBy = "user")
     private Set<CartProduct> cartProducts;
+
+    @OneToMany(mappedBy = "user")
+    private Set<ProductRate> ratings;
 }

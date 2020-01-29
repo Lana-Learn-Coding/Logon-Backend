@@ -1,8 +1,10 @@
 package com.lana.logon.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lana.logon.model.Auditable;
 import com.lana.logon.model.User;
 import com.lana.logon.model.cart.CartProduct;
+import com.lana.logon.model.product.rate.ProductRate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,22 +21,34 @@ public class Product extends Auditable {
     @GeneratedValue
     private Integer id;
 
+    @Column(nullable = false)
     private String name;
+
     private String description;
+
+    @Column(nullable = false)
     private Double price;
-    private Float rate;
+
+    @OneToMany(mappedBy = "product")
+    private Set<ProductRate> ratings;
+
+    @OneToMany
+    @JoinColumn
+    private Set<ProductImage> productImages;
 
     @ManyToMany
     @JoinTable
     private Set<Category> categories;
 
-    @ManyToMany(mappedBy = "favorites")
-    private Set<User> favoriteOfs;
-
     @OneToMany
     @JoinColumn
     private Set<ProductSpecification> specifications;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "favorites")
+    private Set<User> favoriteOfs;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private Set<CartProduct> carts;
 }

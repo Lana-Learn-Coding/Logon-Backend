@@ -1,4 +1,5 @@
-package com.lana.logon.model.cart;
+package com.lana.logon.model.product.rate;
+
 
 import com.lana.logon.model.Auditable;
 import com.lana.logon.model.User;
@@ -13,9 +14,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CartProduct extends Auditable {
+public class ProductRate extends Auditable {
     @EmbeddedId
-    private CartProductKey id;
+    private ProductRateKey id;
 
     @ManyToOne
     @MapsId("user_id")
@@ -27,6 +28,6 @@ public class CartProduct extends Auditable {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(nullable = false)
-    private Integer quantity = 1;
+    @Column(length = 512)
+    private String comment;
 }
