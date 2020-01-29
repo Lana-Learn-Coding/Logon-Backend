@@ -30,7 +30,7 @@ public class Product extends Auditable {
     private Double price;
 
     @OneToMany(mappedBy = "product")
-    private Set<ProductRate> ratings;
+    private Set<ProductRate> rates;
 
     @OneToMany
     @JoinColumn

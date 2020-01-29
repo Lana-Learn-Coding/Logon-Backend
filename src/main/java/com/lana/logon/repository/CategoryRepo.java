@@ -1,4 +1,4 @@
-package com.lana.logon.repository.product;
+package com.lana.logon.repository;
 
 
 import com.lana.logon.model.Category;

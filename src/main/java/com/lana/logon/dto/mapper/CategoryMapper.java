@@ -2,7 +2,7 @@ package com.lana.logon.dto.mapper;
 
 import com.lana.logon.dto.CategoryDto;
 import com.lana.logon.model.Category;
-import com.lana.logon.repository.product.CategoryRepo;
+import com.lana.logon.repository.CategoryRepo;
 import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +16,8 @@ public abstract class CategoryMapper {
         this.categoryRepo = categoryRepo;
     }
 
+    public abstract CategoryDto categoryToCategoryDto(Category category);
+
     public String categoryToString(Category category) {
         return category.getName();
     }
@@ -25,6 +27,4 @@ public abstract class CategoryMapper {
                 .findByName(string)
                 .orElse(null);
     }
-
-    public abstract CategoryDto categoryToCategoryDto(Category category);
 }

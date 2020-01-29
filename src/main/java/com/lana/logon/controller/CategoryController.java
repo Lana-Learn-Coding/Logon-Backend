@@ -4,7 +4,7 @@ import com.lana.logon.dto.CategoryDto;
 import com.lana.logon.dto.ProductDto;
 import com.lana.logon.dto.mapper.CategoryMapper;
 import com.lana.logon.dto.mapper.ProductMapper;
-import com.lana.logon.repository.product.CategoryRepo;
+import com.lana.logon.repository.CategoryRepo;
 import com.lana.logon.repository.product.ProductRepo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
