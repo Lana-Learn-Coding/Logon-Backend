@@ -1,4 +1,4 @@
-package com.lana.logon.repositories;
+package com.lana.logon.repository;
 
 import com.lana.logon.model.User;
 import org.springframework.data.repository.PagingAndSortingRepository;

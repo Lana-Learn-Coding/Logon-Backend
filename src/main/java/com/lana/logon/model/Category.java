@@ -1,7 +1,6 @@
-package com.lana.logon.model.product;
+package com.lana.logon.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.lana.logon.model.Auditable;
+import com.lana.logon.model.product.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +20,6 @@ public class Category extends Auditable {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products;
 }

@@ -1,4 +1,4 @@
-package com.lana.logon.repositories.product;
+package com.lana.logon.repository.product;
 
 import com.lana.logon.model.product.ProductSpecification;
 import org.springframework.data.repository.PagingAndSortingRepository;

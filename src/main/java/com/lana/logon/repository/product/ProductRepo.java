@@ -1,6 +1,6 @@
-package com.lana.logon.repositories.product;
+package com.lana.logon.repository.product;
 
-import com.lana.logon.model.product.Category;
+import com.lana.logon.model.Category;
 import com.lana.logon.model.product.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

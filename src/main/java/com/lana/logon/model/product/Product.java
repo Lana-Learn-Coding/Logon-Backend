@@ -1,7 +1,7 @@
 package com.lana.logon.model.product;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lana.logon.model.Auditable;
+import com.lana.logon.model.Category;
 import com.lana.logon.model.User;
 import com.lana.logon.model.cart.CartProduct;
 import com.lana.logon.model.product.rate.ProductRate;
@@ -44,11 +44,9 @@ public class Product extends Auditable {
     @JoinColumn
     private Set<ProductSpecification> specifications;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "favorites")
     private Set<User> favoriteOfs;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private Set<CartProduct> carts;
 }
