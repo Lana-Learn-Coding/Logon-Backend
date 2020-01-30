@@ -46,7 +46,7 @@ public abstract class ProductMapper {
                         .reduce(Integer::sum)
                         .map((sum) -> {
                             int size = product.getRates().size();
-                            return size == 0 ? (float) sum / size : (float) 0;
+                            return size == 0 ? (float) 0 : (float) sum / size;
                         })
                         .orElse((float) 0)
         );
