@@ -52,7 +52,7 @@ public class CategoryController {
                 .map(value -> ResponseEntity.ok(
                         productRepo
                                 .findAllByCategoriesContains(value, pageable)
-                                .map(product -> productMapper.productToProductDTO(product))
+                                .map(productMapper::productToProductDTO)
                 ))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

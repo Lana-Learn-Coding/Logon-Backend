@@ -2,7 +2,6 @@ package com.lana.logon.model.product;
 
 import com.lana.logon.model.Auditable;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class ProductSpecification extends Auditable {
     @Id
     @GeneratedValue

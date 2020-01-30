@@ -1,10 +1,10 @@
-package com.lana.logon.model;
+package com.lana.logon.model.user;
 
+import com.lana.logon.model.Auditable;
 import com.lana.logon.model.cart.CartProduct;
 import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.rate.ProductRate;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,7 +13,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class User extends Auditable {
     @Id
     @GeneratedValue
