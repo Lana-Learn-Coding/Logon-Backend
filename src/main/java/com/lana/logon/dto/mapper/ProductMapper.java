@@ -3,7 +3,6 @@ package com.lana.logon.dto.mapper;
 import com.lana.logon.dto.ProductDto;
 import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.ProductImage;
-import com.lana.logon.model.product.rate.ProductRate;
 import com.lana.logon.repository.product.ProductImageRepo;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -22,7 +21,6 @@ public abstract class ProductMapper {
     }
 
     @Mapping(target = "image", ignore = true)
-    @Mapping(target = "rate", ignore = true)
     public abstract ProductDto productToProductDTO(Product product);
 
     @AfterMapping
@@ -38,17 +36,6 @@ public abstract class ProductMapper {
                         .findFirstByProductId(product.getId())
                         .map(ProductImage::getImage)
                         .orElse("")
-        );
-
-        productDto.setRate(
-                product.getRates().stream()
-                        .map(ProductRate::getRate)
-                        .reduce(Integer::sum)
-                        .map((sum) -> {
-                            int size = product.getRates().size();
-                            return size == 0 ? (float) 0 : (float) sum / size;
-                        })
-                        .orElse((float) 0)
         );
     }
 

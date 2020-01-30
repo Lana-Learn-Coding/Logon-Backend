@@ -7,6 +7,7 @@ import com.lana.logon.model.product.rate.ProductRate;
 import com.lana.logon.model.user.User;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -49,4 +50,7 @@ public class Product extends Auditable {
 
     @OneToMany(mappedBy = "product")
     private Set<CartProduct> carts;
+
+    @Formula("SELECT CAST(SUM(r.rate) AS FLOAT) / COUNT(*) FROM product_rate r WHERE r.product_id = id")
+    private Float rate;
 }
