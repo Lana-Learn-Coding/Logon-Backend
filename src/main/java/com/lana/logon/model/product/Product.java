@@ -30,13 +30,18 @@ public class Product extends Auditable {
     @OneToMany(mappedBy = "product")
     private Set<ProductRate> rates;
 
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     private Set<ProductImage> productImages;
 
     @ManyToMany
+    @JoinTable(
+            name = "product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
     private Set<Category> categories;
 
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     private Set<ProductSpecification> specifications;
 
     @ManyToMany(mappedBy = "favorites")

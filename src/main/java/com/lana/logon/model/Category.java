@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-public class Category extends Auditable {
+public class Category {
     @Id
     @GeneratedValue
     private Integer id;
