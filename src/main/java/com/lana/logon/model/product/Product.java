@@ -32,7 +32,7 @@ public class Product extends Auditable {
     private Set<ProductRate> rates;
 
     @OneToMany(mappedBy = "product")
-    private Set<ProductImage> productImages;
+    private Set<ProductImage> images;
 
     @ManyToMany
     @JoinTable(

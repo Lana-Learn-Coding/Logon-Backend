@@ -1,5 +1,6 @@
 package com.lana.logon.dto.mapper;
 
+import com.lana.logon.dto.ProductDetailDto;
 import com.lana.logon.dto.ProductDto;
 import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.ProductImage;
@@ -21,7 +22,7 @@ public abstract class ProductMapper {
     }
 
     @Mapping(target = "image", ignore = true)
-    public abstract ProductDto productToProductDTO(Product product);
+    public abstract ProductDto mapToProductDto(Product product);
 
     @AfterMapping
     public void setProductMainImage(Product product, @MappingTarget ProductDto productDto) {
@@ -38,5 +39,7 @@ public abstract class ProductMapper {
                         .orElse("")
         );
     }
+
+    public abstract ProductDetailDto mapToProductDetailDto(Product product);
 
 }

@@ -1,6 +1,6 @@
 package com.lana.logon.controller;
 
-import com.lana.logon.dto.ProductDto;
+import com.lana.logon.dto.ProductDetailDto;
 import com.lana.logon.dto.mapper.ProductMapper;
 import com.lana.logon.repository.product.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +21,9 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDto> getProduct(@PathVariable Integer id) {
+    public ResponseEntity<ProductDetailDto> getProduct(@PathVariable Integer id) {
         return productRepo.findById(id)
-                .map(product -> ResponseEntity.ok(productMapper.productToProductDTO(product)))
+                .map(product -> ResponseEntity.ok(productMapper.mapToProductDetailDto(product)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
