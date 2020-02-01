@@ -42,8 +42,8 @@ public class Product extends Auditable {
     )
     private Set<Category> categories;
 
-    @OneToMany(mappedBy = "product")
-    private Set<ProductSpecification> specifications;
+    @OneToOne
+    private ProductSpecification specification;
 
     @ManyToMany(mappedBy = "favorites")
     private Set<User> favoriteOfs;

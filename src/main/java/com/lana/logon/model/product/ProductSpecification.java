@@ -4,7 +4,10 @@ import com.lana.logon.model.Auditable;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -14,12 +17,11 @@ public class ProductSpecification extends Auditable {
     @GeneratedValue
     private Integer id;
 
-    @Column(nullable = false)
-    private String name;
+    private String ram;
+    private String cpu;
+    private String gpu;
+    private String screen;
 
-    @Column(nullable = false)
-    private String info;
-
-    @ManyToOne
+    @OneToOne(mappedBy = "specification")
     private Product product;
 }
