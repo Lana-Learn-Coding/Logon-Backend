@@ -23,10 +23,14 @@ public class Product extends Auditable {
     @Column(nullable = false)
     private String name;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column(nullable = false)
     private Double price;
+
+    @Column(nullable = false)
+    private Integer inStock;
 
     @OneToMany(mappedBy = "product")
     private Set<ProductRate> rates;

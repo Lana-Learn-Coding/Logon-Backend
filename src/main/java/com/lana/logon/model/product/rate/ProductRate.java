@@ -29,5 +29,6 @@ public class ProductRate extends Auditable {
     @Column(length = 512)
     private String comment;
 
+    @Column(nullable = false)
     private Integer rate;
 }

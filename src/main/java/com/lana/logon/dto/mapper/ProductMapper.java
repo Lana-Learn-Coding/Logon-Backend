@@ -35,7 +35,7 @@ public abstract class ProductMapper {
         productDto.setImage(
                 this.productImageRepo
                         .findFirstByProductId(product.getId())
-                        .map(ProductImage::getImage)
+                        .map(ProductImage::getImage_url)
                         .orElse("")
         );
     }

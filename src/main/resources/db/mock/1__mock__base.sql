@@ -18,7 +18,7 @@ values (2, 'USER');
 insert into ROLE (id, name)
 values (3, 'ADMIN');
 
-insert into User (id, first_name, last_name, email, password, gender, phone, modified_at, created_at, avatar)
+insert into User (id, first_name, last_name, email, password, gender, phone, modified_at, created_at, avatar_url)
 values (1, 'Lana', 'Drahrepus', 'admin@mail.com', '123456', 'F', '01234567890', '2020-01-30 11:23:39',
         '2020-01-30 11:23:39', null);
 

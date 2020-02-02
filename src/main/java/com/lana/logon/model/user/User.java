@@ -18,14 +18,17 @@ public class User extends Auditable {
     @GeneratedValue
     private Integer id;
 
-    @Column(unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(nullable = false)
     private String password;
 
-    private String avatar;
+    private String avatar_url;
 
     private String firstName;
+
     private String lastName;
+
     private Character gender;
 
     @Column(unique = true)
@@ -33,7 +36,7 @@ public class User extends Auditable {
 
     @ManyToMany
     @JoinTable(
-            name = "favorites",
+            name = "user_favorite_product",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )

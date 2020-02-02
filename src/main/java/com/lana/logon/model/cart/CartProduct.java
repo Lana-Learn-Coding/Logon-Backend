@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@Table(name = "user_cart_product")
 public class CartProduct extends Auditable {
     @EmbeddedId
     private CartProductKey id;
