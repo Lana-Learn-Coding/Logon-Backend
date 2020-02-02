@@ -1,9 +1,13 @@
 package com.lana.logon.controller;
 
 import com.lana.logon.dto.ProductDetailDto;
+import com.lana.logon.dto.ProductDto;
 import com.lana.logon.dto.mapper.ProductMapper;
 import com.lana.logon.repository.product.ProductRepo;
+import io.github.perplexhub.rsql.RSQLJPASupport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +22,20 @@ public class ProductController {
     public ProductController(ProductRepo productRepo, ProductMapper productMapper) {
         this.productMapper = productMapper;
         this.productRepo = productRepo;
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<ProductDto>> getAllProduct(@RequestParam(required = false) String query,
+                                                          Pageable pageable) {
+        try {
+            return ResponseEntity.ok(
+                    productRepo
+                            .findAll(RSQLJPASupport.toSpecification(query), pageable)
+                            .map(productMapper::mapToProductDto)
+            );
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/{id}")
