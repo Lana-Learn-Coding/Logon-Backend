@@ -14,5 +14,5 @@ public class ProductDetailDto {
     private Float rate;
 
     private Set<String> images;
-    private Set<String> categories;
+    private String category;
 }

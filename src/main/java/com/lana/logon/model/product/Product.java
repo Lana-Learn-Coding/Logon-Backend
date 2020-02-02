@@ -32,19 +32,15 @@ public class Product extends Auditable {
     @Column(nullable = false)
     private Integer inStock;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Category category;
+
     @OneToMany(mappedBy = "product")
     private Set<ProductRate> rates;
 
     @OneToMany(mappedBy = "product")
     private Set<ProductImage> images;
-
-    @ManyToMany
-    @JoinTable(
-            name = "product_category",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
-    )
-    private Set<Category> categories;
 
     @OneToOne
     private ProductSpecification specification;

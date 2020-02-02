@@ -18,6 +18,6 @@ public class Category {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
+    @OneToMany(mappedBy = "category")
     private Set<Product> products;
 }

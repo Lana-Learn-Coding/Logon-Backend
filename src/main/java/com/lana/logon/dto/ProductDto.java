@@ -10,6 +10,7 @@ public class ProductDto {
     private String name;
     private Double price;
     private String image;
+    private String category;
 
     private Float rate;
 }
