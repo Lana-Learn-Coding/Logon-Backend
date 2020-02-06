@@ -18,11 +18,11 @@ public abstract class CategoryMapper {
 
     public abstract CategoryDto categoryToCategoryDto(Category category);
 
-    public String mapToString(Category category) {
+    public String categoryToString(Category category) {
         return category.getName();
     }
 
-    public Category mapFrom(String string) {
+    public Category stringToCategory(String string) {
         return categoryRepo
                 .findByName(string)
                 .orElse(null);

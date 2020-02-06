@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Mapper(componentModel = "spring", uses = {CategoryMapper.class, ProductImageMapper.class})
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class, ImageMapper.class})
 public abstract class ProductMapper {
 
     private ProductImageRepo productImageRepo;
@@ -22,7 +22,7 @@ public abstract class ProductMapper {
     }
 
     @Mapping(target = "image", ignore = true)
-    public abstract ProductDto mapToProductDto(Product product);
+    public abstract ProductDto productToProductDto(Product product);
 
     @AfterMapping
     public void setProductMainImage(Product product, @MappingTarget ProductDto productDto) {
@@ -40,6 +40,9 @@ public abstract class ProductMapper {
         );
     }
 
-    public abstract ProductDetailDto mapToProductDetailDto(Product product);
+    public abstract ProductDetailDto productToProductDetailDto(Product product);
 
+    public Integer productToInteger(Product product) {
+        return product.getId();
+    }
 }

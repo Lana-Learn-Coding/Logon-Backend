@@ -31,7 +31,7 @@ public class ProductController {
             return ResponseEntity.ok(
                     productRepo
                             .findAll(RSQLJPASupport.toSpecification(query), pageable)
-                            .map(productMapper::mapToProductDto)
+                            .map(productMapper::productToProductDto)
             );
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
@@ -41,7 +41,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<ProductDetailDto> getProduct(@PathVariable Integer id) {
         return productRepo.findById(id)
-                .map(product -> ResponseEntity.ok(productMapper.mapToProductDetailDto(product)))
+                .map(product -> ResponseEntity.ok(productMapper.productToProductDetailDto(product)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

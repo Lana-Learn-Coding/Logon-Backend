@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 
 @Mapper(componentModel = "spring")
-public interface ProductImageMapper {
+public interface ImageMapper {
 
-    default Set<String> mapToStrings(Set<ProductImage> productImages) {
+    default Set<String> productImagesToStrings(Set<ProductImage> productImages) {
         return productImages.stream()
                 .map(ProductImage::getImage_url)
                 .collect(Collectors.toSet());

@@ -51,6 +51,6 @@ public class Product extends Auditable {
     @OneToMany(mappedBy = "product")
     private Set<CartProduct> carts;
 
-    @Formula("SELECT CAST(SUM(r.rate) AS FLOAT) / COUNT(*) FROM product_rate r WHERE r.product_id = id")
+    @Formula("(SELECT CAST(SUM(r.rate) AS FLOAT) / COUNT(*) FROM product_rate r WHERE r.product_id = id)")
     private Float rate;
 }
