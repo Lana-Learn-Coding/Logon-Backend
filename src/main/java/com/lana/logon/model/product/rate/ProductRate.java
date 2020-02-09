@@ -26,6 +26,8 @@ public class ProductRate extends Auditable {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    private String title;
+
     @Column(length = 512)
     private String comment;
 

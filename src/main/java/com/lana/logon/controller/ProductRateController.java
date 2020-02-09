@@ -1,5 +1,6 @@
 package com.lana.logon.controller;
 
+import com.lana.logon.dto.ProductRateCount;
 import com.lana.logon.dto.ProductRateDto;
 import com.lana.logon.dto.mapper.ProductRateMapper;
 import com.lana.logon.repository.product.ProductRateRepo;
@@ -26,8 +27,8 @@ public class ProductRateController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductRateDto>> getAllProduct(@RequestParam(defaultValue = "") String query,
-                                                              Pageable pageable) {
+    public ResponseEntity<Page<ProductRateDto>> getAllRates(@RequestParam(defaultValue = "") String query,
+                                                            Pageable pageable) {
         try {
             return ResponseEntity.ok(
                     productRateRepo
@@ -37,5 +38,10 @@ public class ProductRateController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<ProductRateCount> getAvgRate(@RequestParam("productid") Integer id) {
+        return ResponseEntity.ok(productRateRepo.getRateCountsByProductId(id));
     }
 }

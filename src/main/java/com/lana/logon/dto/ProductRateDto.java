@@ -8,6 +8,8 @@ import lombok.Setter;
 public class ProductRateDto {
     private UserDto user;
     private ProductDto product;
+
+    private String title;
     private String comment;
     private Integer rate;
 }
