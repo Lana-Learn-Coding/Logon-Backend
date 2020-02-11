@@ -23,7 +23,7 @@ public class User extends Auditable {
     @Column(nullable = false)
     private String password;
 
-    private String avatar_url;
+    private String avatarUrl;
 
     private String firstName;
 

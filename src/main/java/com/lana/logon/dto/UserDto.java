@@ -10,7 +10,7 @@ public class UserDto {
 
     private String email;
 
-    private String avatar_url;
+    private String avatar;
 
     private String firstName;
 

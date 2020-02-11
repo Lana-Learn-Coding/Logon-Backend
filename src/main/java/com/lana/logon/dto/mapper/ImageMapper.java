@@ -12,7 +12,7 @@ public interface ImageMapper {
 
     default Set<String> productImagesToStrings(Set<ProductImage> productImages) {
         return productImages.stream()
-                .map(ProductImage::getImage_url)
+                .map(ProductImage::getImageUrl)
                 .collect(Collectors.toSet());
     }
 }

@@ -17,13 +17,13 @@ public class ProductImage extends Auditable {
     private Integer id;
 
     @Column(nullable = false)
-    private String image_url;
+    private String imageUrl;
 
     @ManyToOne
     private Product product;
 
-    public ProductImage(String image_url, Product product) {
+    public ProductImage(String imageUrl, Product product) {
         this.product = product;
-        this.image_url = image_url;
+        this.imageUrl = imageUrl;
     }
 }

@@ -15,4 +15,5 @@ public class ProductDetailDto {
 
     private Set<String> images;
     private String category;
+    private String description;
 }
