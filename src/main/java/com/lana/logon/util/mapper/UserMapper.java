@@ -1,6 +1,6 @@
-package com.lana.logon.dto.mapper;
+package com.lana.logon.util.mapper;
 
-import com.lana.logon.dto.UserDto;
+import com.lana.logon.dto.user.UserDto;
 import com.lana.logon.model.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

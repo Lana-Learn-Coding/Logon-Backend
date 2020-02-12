@@ -1,4 +1,4 @@
-package com.lana.logon.dto.mapper;
+package com.lana.logon.util.mapper;
 
 import com.lana.logon.dto.CategoryDto;
 import com.lana.logon.model.Category;

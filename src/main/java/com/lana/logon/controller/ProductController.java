@@ -1,9 +1,9 @@
 package com.lana.logon.controller;
 
-import com.lana.logon.dto.ProductDetailDto;
-import com.lana.logon.dto.ProductDto;
-import com.lana.logon.dto.mapper.ProductMapper;
+import com.lana.logon.dto.product.ProductDetailDto;
+import com.lana.logon.dto.product.ProductDto;
 import com.lana.logon.repository.product.ProductRepo;
+import com.lana.logon.util.mapper.ProductMapper;
 import io.github.perplexhub.rsql.RSQLJPASupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

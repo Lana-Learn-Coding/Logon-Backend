@@ -1,4 +1,4 @@
-package com.lana.logon.dto;
+package com.lana.logon.dto.product.rate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

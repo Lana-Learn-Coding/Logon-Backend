@@ -1,7 +1,7 @@
-package com.lana.logon.dto.mapper;
+package com.lana.logon.util.mapper;
 
-import com.lana.logon.dto.ProductDetailDto;
-import com.lana.logon.dto.ProductDto;
+import com.lana.logon.dto.product.ProductDetailDto;
+import com.lana.logon.dto.product.ProductDto;
 import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.ProductImage;
 import com.lana.logon.repository.product.ProductImageRepo;

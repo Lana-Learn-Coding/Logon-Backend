@@ -1,4 +1,4 @@
-package com.lana.logon.dto;
+package com.lana.logon.dto.user;
 
 import lombok.Getter;
 import lombok.Setter;

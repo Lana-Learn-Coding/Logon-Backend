@@ -1,8 +1,8 @@
 package com.lana.logon.controller;
 
 import com.lana.logon.dto.CategoryDto;
-import com.lana.logon.dto.mapper.CategoryMapper;
 import com.lana.logon.repository.CategoryRepo;
+import com.lana.logon.util.mapper.CategoryMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.lana.logon.dto.mapper;
+package com.lana.logon.util.mapper;
 
 import com.lana.logon.model.product.ProductImage;
 import org.mapstruct.Mapper;

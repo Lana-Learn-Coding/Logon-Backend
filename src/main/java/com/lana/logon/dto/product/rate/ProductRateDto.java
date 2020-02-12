@@ -1,5 +1,7 @@
-package com.lana.logon.dto;
+package com.lana.logon.dto.product.rate;
 
+import com.lana.logon.dto.product.ProductDto;
+import com.lana.logon.dto.user.UserDto;
 import lombok.Getter;
 import lombok.Setter;
 

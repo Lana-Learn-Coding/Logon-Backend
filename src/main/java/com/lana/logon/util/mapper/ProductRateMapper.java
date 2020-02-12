@@ -1,6 +1,6 @@
-package com.lana.logon.dto.mapper;
+package com.lana.logon.util.mapper;
 
-import com.lana.logon.dto.ProductRateDto;
+import com.lana.logon.dto.product.rate.ProductRateDto;
 import com.lana.logon.model.product.rate.ProductRate;
 import org.mapstruct.Mapper;
 
