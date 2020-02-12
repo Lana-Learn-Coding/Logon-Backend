@@ -1,4 +1,4 @@
-package com.lana.logon.repository;
+package com.lana.logon.repository.user;
 
 import com.lana.logon.model.user.Role;
 import org.springframework.data.repository.CrudRepository;
