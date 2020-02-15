@@ -16,6 +16,6 @@ public interface ProductRateRepo extends PagingAndSortingRepository<ProductRate,
             "COALESCE(SUM(case when r.rate = 3 then 1 else 0 end),0)," +
             "COALESCE(SUM(case when r.rate = 4 then 1 else 0 end),0)," +
             "COALESCE(SUM(case when r.rate = 5 then 1 else 0 end),0))" +
-            "FROM ProductRate r WHERE r.id.productId = :id")
+            "FROM ProductRate r WHERE r.product.id = :id")
     ProductRateCount getRateCountsByProductId(@Param("id") Integer id);
 }

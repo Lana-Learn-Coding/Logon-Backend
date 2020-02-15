@@ -13,17 +13,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class ProductRate extends Auditable {
-    @EmbeddedId
-    private ProductRateKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
-    @MapsId("user_id")
-    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @MapsId("product_id")
-    @JoinColumn(name = "product_id")
     private Product product;
 
     private String title;
