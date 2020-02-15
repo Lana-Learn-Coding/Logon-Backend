@@ -28,7 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = this.userRepo
-                .findByEmail(username)
+                .findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("user: " + username + " not found!"));
 
         Set<GrantedAuthority> grantedAuthorities = user.getRoles()
@@ -36,10 +36,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .map((role) -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toSet());
 
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
-                .password(user.getPassword())
-                .authorities(grantedAuthorities)
-                .build();
+        return new AuthUserDetails(user.getId(), user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 }

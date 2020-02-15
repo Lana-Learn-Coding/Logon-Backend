@@ -18,8 +18,8 @@ public class User extends Auditable {
     @GeneratedValue
     private Integer id;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Column(name = "email", nullable = false, unique = true)
+    private String username;
     @Column(nullable = false)
     private String password;
 

@@ -7,6 +7,7 @@ import com.lana.logon.security.jwt.JwtProvider;
 import com.lana.logon.util.mapper.UserMapper;
 import org.flywaydb.core.internal.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,7 +39,7 @@ public class AuthController {
     }
 
     @PostMapping
-    public ResponseEntity<UserAndToken> authenticate(@RequestBody LoginPayload payload) {
+    public ResponseEntity<UserAndToken> login(@RequestBody LoginPayload payload) {
         if (StringUtils.hasText(payload.getEmail()) && StringUtils.hasText(payload.getPassword())) {
             try {
                 Authentication authentication = authManager.authenticate(
@@ -51,7 +52,7 @@ public class AuthController {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
                 return this.userRepo
-                        .findByEmail(payload.getEmail())
+                        .findByUsername(payload.getEmail())
                         .map(user -> {
                             UserAndToken userAndToken = new UserAndToken();
                             userAndToken.setToken(jwtProvider.generateToken(user));
@@ -61,7 +62,7 @@ public class AuthController {
                         .orElseThrow(() -> new UsernameNotFoundException("user not exist"));
 
             } catch (AuthenticationException e) {
-                return ResponseEntity.status(401).build();
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             }
 
         } else {
