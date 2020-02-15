@@ -1,9 +1,13 @@
 package com.lana.logon.util.mapper;
 
+import com.lana.logon.dto.product.CartProductDto;
 import com.lana.logon.dto.product.ProductDetailDto;
 import com.lana.logon.dto.product.ProductDto;
+import com.lana.logon.dto.product.rate.ProductRateDto;
+import com.lana.logon.model.cart.CartProduct;
 import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.ProductImage;
+import com.lana.logon.model.product.rate.ProductRate;
 import com.lana.logon.repository.product.ProductImageRepo;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -11,7 +15,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Mapper(componentModel = "spring", uses = {CategoryMapper.class, ImageMapper.class})
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class, ImageMapper.class, UserMapper.class})
 public abstract class ProductMapper {
 
     private ProductImageRepo productImageRepo;
@@ -42,7 +46,16 @@ public abstract class ProductMapper {
 
     public abstract ProductDetailDto productToProductDetailDto(Product product);
 
+    public abstract CartProductDto cartProductToCartProductDto(CartProduct cartProduct);
+
+    public abstract CartProduct cartProductDtoToCartProduct(CartProductDto cartProductDto);
+
+    public abstract ProductRateDto productRateToProductRateDto(ProductRate productRate);
+
+    public abstract ProductRate productRateDtoToProductRate(ProductRateDto productRate);
+
     public Integer productToInteger(Product product) {
         return product.getId();
     }
+
 }
