@@ -1,7 +1,7 @@
 package com.lana.logon.repository.product;
 
 import com.lana.logon.dto.product.rate.ProductRateCount;
-import com.lana.logon.model.product.rate.ProductRate;
+import com.lana.logon.model.product.ProductRate;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;

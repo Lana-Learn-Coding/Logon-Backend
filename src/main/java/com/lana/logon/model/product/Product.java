@@ -3,7 +3,6 @@ package com.lana.logon.model.product;
 import com.lana.logon.model.Auditable;
 import com.lana.logon.model.Category;
 import com.lana.logon.model.cart.CartProduct;
-import com.lana.logon.model.product.rate.ProductRate;
 import com.lana.logon.model.user.User;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,7 @@
-package com.lana.logon.model.product.rate;
+package com.lana.logon.model.product;
 
 
 import com.lana.logon.model.Auditable;
-import com.lana.logon.model.product.Product;
 import com.lana.logon.model.user.User;
 import lombok.Getter;
 import lombok.Setter;

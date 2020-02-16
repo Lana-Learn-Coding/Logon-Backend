@@ -7,7 +7,7 @@ import com.lana.logon.dto.product.rate.ProductRateDto;
 import com.lana.logon.model.cart.CartProduct;
 import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.ProductImage;
-import com.lana.logon.model.product.rate.ProductRate;
+import com.lana.logon.model.product.ProductRate;
 import com.lana.logon.repository.product.ProductImageRepo;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;

@@ -9,9 +9,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "user_cart_product")
 @Getter
 @Setter
-@Table(name = "user_cart_product")
 public class CartProduct extends Auditable {
     @EmbeddedId
     private CartProductKey id;
