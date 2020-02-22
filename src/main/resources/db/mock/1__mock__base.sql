@@ -22,5 +22,7 @@ INSERT INTO User (id, first_name, last_name, email, password, gender, phone, mod
 VALUES (1, 'Lana', 'Drahrepus', 'admin@mail.com', '123456', 'F', '01234567890', '2020-01-30 11:23:39',
         '2020-01-30 11:23:39', NULL);
 
-insert into User_Role(user_id, role_id)
-values (1, 3);
+INSERT INTO User_Role(user_id, role_id)
+VALUES (1, 3);
+INSERT INTO User_Role(user_id, role_id)
+VALUES (1, 2);
