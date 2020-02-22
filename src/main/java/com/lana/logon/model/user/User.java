@@ -25,8 +25,10 @@ public class User extends Auditable {
 
     private String avatarUrl;
 
+    @Column(nullable = false)
     private String firstName;
 
+    @Column(nullable = false)
     private String lastName;
 
     private Character gender;

@@ -10,4 +10,8 @@ public interface UserMapper {
     @Mapping(target = "avatar", source = "avatarUrl")
     @Mapping(target = "email", source = "username")
     UserDto userToUserDto(User user);
+
+    @Mapping(target = "avatarUrl", source = "avatar")
+    @Mapping(target = "username", source = "email")
+    User userDtoToUser(UserDto userDto);
 }
