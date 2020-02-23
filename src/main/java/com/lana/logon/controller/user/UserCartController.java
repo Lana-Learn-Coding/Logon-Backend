@@ -80,11 +80,7 @@ public class UserCartController {
                              saved.getId().getProductId().toString())
                 .build()
                 .toUri();
-        return ResponseEntity.created(createdUri).body(
-                productMapper.cartProductToCartProductDto(
-                        cartProductRepo.findById(saved.getId()).orElse(null)
-                )
-        );
+        return ResponseEntity.created(createdUri).body(productMapper.cartProductToCartProductDto(saved));
     }
 
     @PutMapping("/{id}/carts/{productId}")

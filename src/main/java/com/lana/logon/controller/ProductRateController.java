@@ -2,8 +2,12 @@ package com.lana.logon.controller;
 
 import com.lana.logon.dto.product.rate.ProductRateCount;
 import com.lana.logon.dto.product.rate.ProductRateDto;
+import com.lana.logon.model.product.Product;
 import com.lana.logon.model.product.ProductRate;
+import com.lana.logon.model.user.User;
 import com.lana.logon.repository.product.ProductRateRepo;
+import com.lana.logon.repository.product.ProductRepo;
+import com.lana.logon.repository.user.UserRepo;
 import com.lana.logon.security.AuthUserDetails;
 import com.lana.logon.util.mapper.ProductMapper;
 import io.github.perplexhub.rsql.RSQLJPASupport;
@@ -13,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -26,12 +31,18 @@ public class ProductRateController {
 
     private final ProductRateRepo productRateRepo;
     private final ProductMapper productMapper;
+    private final UserRepo userRepo;
+    private final ProductRepo productRepo;
 
     @Autowired
     public ProductRateController(ProductRateRepo productRateRepo,
-                                 ProductMapper productMapper) {
+                                 ProductMapper productMapper,
+                                 ProductRepo productRepo,
+                                 UserRepo userRepo) {
         this.productRateRepo = productRateRepo;
         this.productMapper = productMapper;
+        this.productRepo = productRepo;
+        this.userRepo = userRepo;
     }
 
     @GetMapping
@@ -61,20 +72,27 @@ public class ProductRateController {
         return ResponseEntity.ok(productMapper.productRateToProductRateDto(found.get()));
     }
 
-    // TODO: Should return new rate
     @PostMapping
-    public ResponseEntity<Void> rateProduct(@RequestBody ProductRateDto productRateDto,
-                                            @AuthenticationPrincipal AuthUserDetails authenticatedUser,
-                                            UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<ProductRateDto> rateProduct(@RequestBody ProductRateDto productRateDto,
+                                                      @AuthenticationPrincipal UserDetails authenticatedUser,
+                                                      UriComponentsBuilder uriBuilder) {
         if (productRateDto.getProduct().getId() == null || productRateDto.getUser().getId() == null) {
             return ResponseEntity.badRequest().build();
         }
-        if (!productRateDto.getUser().getId().equals(authenticatedUser.getId())) {
+        Optional<Product> product = productRepo.findById(productRateDto.getProduct().getId());
+        Optional<User> user = userRepo.findById(productRateDto.getUser().getId());
+        ProductRate rate = productMapper.productRateDtoToProductRate(productRateDto);
+        if (!product.isPresent() || !user.isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
+        rate.setUser(user.get());
+        rate.setProduct(product.get());
+        if (!rate.getUser().getUsername().equals(authenticatedUser.getUsername())) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-        ProductRate saved = productRateRepo.save(productMapper.productRateDtoToProductRate(productRateDto));
+        ProductRate saved = productRateRepo.save(rate);
         URI savedUri = uriBuilder.pathSegment("api", "rates", saved.getId().toString()).build().toUri();
-        return ResponseEntity.created(savedUri).build();
+        return ResponseEntity.created(savedUri).body(productMapper.productRateToProductRateDto(saved));
     }
 
     @GetMapping("/count")

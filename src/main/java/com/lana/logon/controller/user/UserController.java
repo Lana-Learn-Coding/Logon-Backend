@@ -63,18 +63,17 @@ public class UserController {
         return ResponseEntity.ok(userMapper.userToUserDto(user.get()));
     }
 
-    // TODO: Should return new user
     @PostMapping
-    public ResponseEntity<Void> signUp(@RequestBody UserDto userDto,
-                                       UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<UserDto> signUp(@RequestBody UserDto userDto,
+                                          UriComponentsBuilder uriBuilder) {
         if (userDto.getEmail() != null && userRepo.findByUsername(userDto.getEmail()).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
+        User user = userMapper.userDtoToUser(userDto);
+        user.setRoles(new HashSet<>(Collections.singletonList(new Role(RoleName.USER))));
 
-        User newUser = userMapper.userDtoToUser(userDto);
-        newUser.setRoles(new HashSet<>(Collections.singletonList(new Role(RoleName.USER))));
-        userRepo.save(newUser);
-        URI savedUri = uriBuilder.pathSegment("api", "users", newUser.getId().toString()).build().toUri();
-        return ResponseEntity.created(savedUri).build();
+        User saved = userRepo.save(user);
+        URI savedUri = uriBuilder.pathSegment("api", "users", user.getId().toString()).build().toUri();
+        return ResponseEntity.created(savedUri).body(userMapper.userToUserDto(saved));
     }
 }
